@@ -1,6 +1,5 @@
 from SCRAMserver import app,logger
-from flask import request
-import json
+from flask import request,jsonify
 
 @app.route('/')
 def hello_world():
@@ -13,4 +12,4 @@ def input(source):
         input_string = request.form['alh_string']
         logger.info("Received [%s]: %s" % (source,input_string))
 
-    return json.dumps(True)
+    return jsonify(response=True)
