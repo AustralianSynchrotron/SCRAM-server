@@ -1,7 +1,7 @@
 from SCRAMrelay import app,logger
 from flask import request
 import requests
-
+import json
 
 
 @app.route('/')
@@ -17,3 +17,5 @@ def input(source):
         url = "http://10.6.100.198:9669/input/%s/" % (source)
         r = requests.post( url , data={"alh_string":input_string})
         logger.info("Forwarded [%s]: %s to %s with result: %s" % (source,input_string,url,r.text))
+
+    return json.dumps(True)
