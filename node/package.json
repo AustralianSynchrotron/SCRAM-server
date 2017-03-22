@@ -1,0 +1,28 @@
+{
+  "name": "scram-server",
+  "version": "0.1.0",
+  "description": "Node server to receive generic input from alarm sources and to serve live alarm data to the web interface",
+  "main": "app_scram_server.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AustralianSynchrotron/SCRAM-server.git"
+  },
+  "author": "roddac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AustralianSynchrotron/SCRAM-server/issues"
+  },
+  "homepage": "https://github.com/AustralianSynchrotron/SCRAM-server#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  }
+}

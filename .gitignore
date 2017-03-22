@@ -102,3 +102,8 @@ ENV/
 [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
+
+# Node Files
+/node_modules/
+/node/node_modules/
+!/node/bin/
