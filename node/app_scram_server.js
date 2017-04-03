@@ -5,6 +5,9 @@
 var express = require('express');
 var app = express();
 
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
 var input = require('./routes/input');
 var root = require('./routes/root');
 
@@ -18,4 +21,12 @@ app.use(favicon('views/egg-icon.png'));
 app.use('/',root);
 app.use('/input',input);
 
+io.on('connection', function (socket) {
+    console.log('socket connected: ');
+    socket.on('disconnect', function(){
+        console.log('socket disconnected: ');
+    });
+});
+
 module.exports = app;
+module.exports = server;
