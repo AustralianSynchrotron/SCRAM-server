@@ -8,7 +8,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-var input = require('./routes/input');
+var input = require('./routes/input')(io);
 var root = require('./routes/root');
 
 var favicon = require('serve-favicon');

@@ -27,12 +27,18 @@ Displayed Results: <%= result.length %>
 
 <script src="socket.io.min.js"></script>
 <script src="jquery-3.2.0.min.js"></script>
+<script src="moment.js"></script>
 <script>
     var socket = io();
 
     socket.on('db_updated', function(msg){
-        console.log(msg);
-        $('.pv_display_list').prepend($('<li>').text(msg));
+{#        console.log(msg);#}
+        var msg = JSON.parse(msg);
+        $('.pv_display_list').prepend($('<li>').text("--- " + moment(msg.pv_date).format("YYYY-MM-DD  HH:mm:ss") + " " +
+                                                msg.pv_name + " " +
+                                                msg.pv_value + " " +
+                                                msg.pv_status + " " +
+                                                msg.pv_severity));
     });
 </script>
 
