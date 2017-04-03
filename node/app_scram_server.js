@@ -21,9 +21,9 @@ app.use(favicon('views/egg-icon.png'));
 app.use('/',root);
 app.use('/input',input);
 
-io.on('connection', function (socket) {
+io.on('connection', function (client) {
     console.log('socket connected: ');
-    socket.on('disconnect', function(){
+    client.on('disconnect', function(){
         console.log('socket disconnected: ');
     });
 });
