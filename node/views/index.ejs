@@ -12,11 +12,11 @@ Number of results: <%= count %>
 <%= result.length %>
 <% for (var i = 0; i < count; i++) { %>
 <h2><%= i %>:
-    <% if (result[i].pv_date) %><%= moment(result[i].pv_date).format("YYYY-MM-DD  HH:mm:ss") %> <% } %>
-    <% if (result[i].pv_name) %><%= result[i].pv_name %> <% } %>
-    <% if (result[i].pv_value) %><%= result[i].pv_value %><% } %>
-    <% if (result[i].pv_status) %><%= result[i].pv_status %><% } %>
-    <% if (result[i].pv_severity) %><%= result[i].pv_severity %><% } %>
+    <% if (result[i].pv_date) { %><%= moment(result[i].pv_date).format("YYYY-MM-DD  HH:mm:ss") %> <% } %>
+    <% if (result[i].pv_name) { %><%= result[i].pv_name %> <% } %>
+    <% if (result[i].pv_value) { %><%= result[i].pv_value %><% } %>
+    <% if (result[i].pv_status) { %><%= result[i].pv_status %><% } %>
+    <% if (result[i].pv_severity) { %><%= result[i].pv_severity %><% } %>
 </h2>
 <% } %>
 <% } %>
