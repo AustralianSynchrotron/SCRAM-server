@@ -5,20 +5,23 @@
     <title>Node SCRAM Server</title>
 </head>
 <body>
-<h1>Hello Node!</h1>
-Testing callbacks...<br>
+<h1>You've been SCRAM-ed [Superior Control Room Alarm Manager - external display]</h1>
+<h2>Latest Alarms</h2>
+
 <% if (result) { %>
 Number of results: <%= count %><br>
 Displayed Results: <%= result.length %>
+<ol><h2><div class="pv_display_list">
 <% for (var i = 0; i < result.length; i++) { %>
-<h2><%= i %>:
+<li>---
     <% if (result[i].pv_date) { %><%= moment(result[i].pv_date).format("YYYY-MM-DD  HH:mm:ss") %> <% } %>
     <% if (result[i].pv_name) { %><%= result[i].pv_name %> <% } %>
     <% if (result[i].pv_value) { %><%= result[i].pv_value %><% } %>
     <% if (result[i].pv_status) { %><%= result[i].pv_status %><% } %>
     <% if (result[i].pv_severity) { %><%= result[i].pv_severity %><% } %>
-</h2>
+</li>
 <% } %>
+</div></h2></ol>
 <% } %>
 
 </body>
