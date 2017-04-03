@@ -28,5 +28,4 @@ io.on('connection', function (socket) {
     });
 });
 
-module.exports = app;
-module.exports = server;
+module.exports = {server:server,io:io};

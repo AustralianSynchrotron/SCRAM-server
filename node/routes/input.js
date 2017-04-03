@@ -8,8 +8,9 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var parseUrlEncoded = bodyParser.urlencoded({extended: false});
 
-var pvDb = require(__dirname + '/../models/pv');
+var pvDb = require('../models/pv');
 
+var io = require('../app_scram_server').io;
 
 router.route('/:source')
     .post(parseUrlEncoded,function(req,res){
@@ -31,6 +32,11 @@ router.route('/:source')
             new_pv.save(function(err,pv){
                 if (err) return console.error(err);
                 console.log(pv);
+            });
+
+            console.log('About to emit db_updated: ');
+            io.emit('db_updated','Test Message',function (response) {
+                console.log(response);
             });
 
             res.sendStatus(201);

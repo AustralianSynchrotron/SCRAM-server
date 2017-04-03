@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-var app = require('./../app_scram_server');
-server.listen(9667,function(){
+var server = require('../app_scram_server');
+
+server.server.listen(9667,function(){
     console.log('Listening on port 9667');
 });

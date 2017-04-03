@@ -28,6 +28,11 @@ Displayed Results: <%= result.length %>
 <script src="socket.io.min.js"></script>
 <script>
     var socket = io();
+
+    socket.on('db_updated', function(msg){
+        console.log(msg);
+        $('.pv_display_list').prepend($('<li>').text(msg));
+    });
 </script>
 
 </body>
