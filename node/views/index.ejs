@@ -7,10 +7,10 @@
 <body>
 <h1>Hello Node!</h1>
 Testing callbacks...<br>
-<% if (count) { %>
-Number of results: <%= count %>
-<%= result.length %>
-<% for (var i = 0; i < count; i++) { %>
+<% if (result) { %>
+Number of results: <%= count %><br>
+Displayed Results: <%= result.length %>
+<% for (var i = 0; i < result.length; i++) { %>
 <h2><%= i %>:
     <% if (result[i].pv_date) { %><%= moment(result[i].pv_date).format("YYYY-MM-DD  HH:mm:ss") %> <% } %>
     <% if (result[i].pv_name) { %><%= result[i].pv_name %> <% } %>
