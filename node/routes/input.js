@@ -10,7 +10,7 @@ var parseUrlEncoded = bodyParser.urlencoded({extended: false});
 
 var pvDb = require('../models/pv');
 
-var io = require('../app_scram_server').io;
+var socket = require('../app_scram_server');
 
 router.route('/:source')
     .post(parseUrlEncoded,function(req,res){
@@ -35,7 +35,7 @@ router.route('/:source')
             });
 
             console.log('About to emit db_updated: ');
-            io.emit('db_updated','Test Message',function (response) {
+            socket.io.emit('db_updated','Test Message',function (response) {
                 console.log(response);
             });
 
