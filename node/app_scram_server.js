@@ -8,7 +8,9 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-var input = require('./routes/input')(io);
+module.exports = {server: server, io: io};
+
+var input = require('./routes/input');
 var root = require('./routes/root');
 
 var favicon = require('serve-favicon');
@@ -28,4 +30,4 @@ io.on('connection', function (client) {
     });
 });
 
-module.exports = {server:server,io:io};
+
