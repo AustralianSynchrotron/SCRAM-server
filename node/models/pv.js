@@ -2,10 +2,12 @@
  * Created on 23/03/2017.
  */
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://10.6.100.198:27017/SCRAMtest');
-var scramSchema = mongoose.Schema;
+mongoose.connect('mongodb://10.6.100.198:27017/SCRAMtest');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console,'MongoDB connection error: '));
+var ScramSchema = mongoose.Schema;
 
-var pvSchema = new scramSchema({
+var pvSchema = new ScramSchema({
     pv_name: {type: String, required: true},
     pv_value: {type: String, required: true},
     pv_date: {type: Date, required: true},
@@ -16,6 +18,6 @@ var pvSchema = new scramSchema({
     comments: String
 });
 
-var SCRAMtest = mongoose.model('SCRAMtest',pvSchema);
+var SCRAM_pv = mongoose.model('SCRAM_pv',pvSchema);
 
-modeule.exports = SCRAMtest;
+module.exports = SCRAM_pv;

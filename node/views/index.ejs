@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node SCRAM Server</title>
+</head>
+<body>
+<h1>Hello Node!</h1>
+Testing callbacks...<br>
+<% if (count) { %>
+Number of results: <%= count %>
+<%= result.length %>
+<% for (var i = 0; i < count; i++) { %>
+<h2><%= i %>:  <%= moment(result[i].pv_date).format("YYYY-MM-DD  HH:mm:ss") %>  <%= result[i].pv_name %>  <%= result[i].pv_value %>  <%= result[i].pv_status %>  <%= result[i].pv_severity %></h2>
+<% } %>
+<% } %>
+
+</body>
+</html>

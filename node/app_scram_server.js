@@ -10,8 +10,11 @@ var root = require('./routes/root');
 
 var favicon = require('serve-favicon');
 
-app.use(express.static(__dirname + '/public'));
-app.use(favicon('public/egg-icon.png'));
+// specify ejs as the template engine
+app.set('view engine','ejs');
+
+app.use(express.static(__dirname + '/views'));
+app.use(favicon('views/egg-icon.png'));
 app.use('/',root);
 app.use('/input',input);
 
