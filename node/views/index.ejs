@@ -13,12 +13,11 @@ Number of results: <%= count %><br>
 Displayed Results: <%= result.length %>
 <ol><h2><div class="pv_display_list">
 <% for (var i = 0; i < result.length; i++) { %>
-<li>---
-    <% if (result[i].pv_date) { %><%= moment(result[i].pv_date).format("YYYY-MM-DD  HH:mm:ss") %> <% } %>
-    <% if (result[i].pv_name) { %><%= result[i].pv_name %> <% } %>
-    <% if (result[i].pv_value) { %><%= result[i].pv_value %><% } %>
-    <% if (result[i].pv_status) { %><%= result[i].pv_status %><% } %>
-    <% if (result[i].pv_severity) { %><%= result[i].pv_severity %><% } %>
+<li>--- <% if (result[i].pv_date) { %><%= moment(result[i].pv_date).format("YYYY-MM-DD  HH:mm:ss") %> <% } -%>
+    <% if (result[i].pv_name) { %><%= result[i].pv_name %> <% } -%>
+    <% if (result[i].pv_value) { %><%= result[i].pv_value %><% } -%>
+    <% if (result[i].pv_status) { %><%= result[i].pv_status %><% } -%>
+    <% if (result[i].pv_severity) { %><%= result[i].pv_severity %><% } -%>
 </li>
 <% } %>
 </div></h2></ol>
