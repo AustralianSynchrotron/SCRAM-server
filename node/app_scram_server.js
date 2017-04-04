@@ -29,8 +29,6 @@ app.use('/css',express.static(__dirname + '/node_modules/tether/dist/css'));
 app.use('/',root);
 app.use('/input',input);
 
-console.log(__dirname + '/node_modules/moment/min');
-
 io.on('connection', function (client) {
     console.log('socket connected: ');
     client.on('disconnect', function(){

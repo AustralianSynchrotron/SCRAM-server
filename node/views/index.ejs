@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/tether.min.css">
+    <link rel="stylesheet" href="/scram.custom.css">
 </head>
 <body>
 <h1>You've been SCRAM-ed [Superior Control Room Alarm Manager - external display]</h1>
@@ -13,18 +14,19 @@
 <h2>Latest Alarms</h2>
 
 <% if (result) { %>
-Number of results: <%= count %><br>
-Displayed Results: <%= result.length %>
-<ol><h2><div class="pv_display_list">
+<ol><h3><div class="pv_display_list">
 <% for (var i = 0; i < result.length; i++) { %>
-<li>--- <% if (result[i].pv_date) { %><%= moment(result[i].pv_date).format("YYYY-MM-DD  HH:mm:ss") %> <% } -%>
-    <% if (result[i].pv_name) { %><%= result[i].pv_name %> <% } -%>
-    <% if (result[i].pv_value) { %><%= result[i].pv_value %><% } -%>
-    <% if (result[i].pv_status) { %><%= result[i].pv_status %><% } -%>
-    <% if (result[i].pv_severity) { %><%= result[i].pv_severity %><% } -%>
-</li>
+<div class="row <% if (result[i].pv_severity == 'MAJOR') { %> bg-danger <% } %> <% if (result[i].pv_severity == 'MINOR') { %> bg-warning <% } %>">
+
+        <div class="col-sm-2"><% if (result[i].pv_date) { %><%= moment(result[i].pv_date).format("YYYY-MM-DD  HH:mm:ss") %> <% } -%></div>
+        <div class="col-sm-4"><% if (result[i].pv_name) { %><%= result[i].pv_name %> <% } -%></div>
+        <div class="col-sm"><% if (result[i].pv_value) { %><%= result[i].pv_value %><% } -%></div>
+        <div class="col-sm"><% if (result[i].pv_status) { %><%= result[i].pv_status %><% } -%></div>
+        <div class="col-sm"><% if (result[i].pv_severity) { %><%= result[i].pv_severity %><% } -%></div>
+
+</div>
 <% } %>
-</div></h2></ol>
+</div></h3></ol>
 <% } %>
 
 
@@ -37,13 +39,24 @@ Displayed Results: <%= result.length %>
     var socket = io();
 
     socket.on('db_updated', function(msg){
-        // console.log(msg);
         var msg2 = JSON.parse(msg);
-        $('.pv_display_list').prepend($('<li>').text("--- " + moment(msg2.pv_date).format("YYYY-MM-DD  HH:mm:ss") + " " +
-                                                msg2.pv_name + " " +
-                                                msg2.pv_value + " " +
-                                                msg2.pv_status + " " +
-                                                msg2.pv_severity));
+        var class_str = "row";
+        if (msg2.pv_severity === 'MAJOR'){
+            class_str = "row bg-danger";
+        }
+        if (msg2.pv_severity === 'MINOR'){
+            class_str = "row bg-warning";
+        }
+        console.log(class_str);
+
+        $('.pv_display_list')
+            .prepend($('<div>')
+            .addClass(class_str)
+            .html("<div class='col-sm-2'>" + moment(msg2.pv_date).format("YYYY-MM-DD  HH:mm:ss") + "</div>" +
+                "<div class='col-sm-4'>" + msg2.pv_name + "</div>" +
+                "<div class='col-sm'>" + msg2.pv_value + "</div>" +
+                "<div class='col-sm'>" + msg2.pv_status + "</div>" +
+                "<div class='col-sm'>" + msg2.pv_severity + "</div>"));
     });
 
     socket.on('connect', function(){
