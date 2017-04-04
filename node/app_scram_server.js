@@ -20,8 +20,16 @@ app.set('view engine','ejs');
 
 app.use(express.static(__dirname + '/views'));
 app.use(favicon('views/egg-icon.png'));
+app.use('/js',express.static(__dirname + '/node_modules/moment/min'));
+app.use('/js',express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/js',express.static(__dirname + '/node_modules/bootstrap/dist/js'));
+app.use('/js',express.static(__dirname + '/node_modules/tether/dist/js'));
+app.use('/css',express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+app.use('/css',express.static(__dirname + '/node_modules/tether/dist/css'));
 app.use('/',root);
 app.use('/input',input);
+
+console.log(__dirname + '/node_modules/moment/min');
 
 io.on('connection', function (client) {
     console.log('socket connected: ');

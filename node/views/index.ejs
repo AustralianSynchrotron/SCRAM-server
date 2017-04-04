@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Node SCRAM Server</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/tether.min.css">
 </head>
 <body>
 <h1>You've been SCRAM-ed [Superior Control Room Alarm Manager - external display]</h1>
+<div class="alert alert-danger" id="connection_state"></div>
 <h2>Latest Alarms</h2>
 
 <% if (result) { %>
@@ -25,8 +29,10 @@ Displayed Results: <%= result.length %>
 
 
 <script src="socket.io.min.js"></script>
-<script src="jquery-3.2.0.min.js"></script>
-<script src="moment.js"></script>
+<script src="/js/jquery.min.js?v3.2.1"></script>
+<script src="/js/tether.min.js?v1.4.0"></script>
+<script src="/js/bootstrap.min.js?v4.0.0-alpha.6"></script>
+<script src="/js/moment-with-locales.min.js"></script>
 <script>
     var socket = io();
 
@@ -38,6 +44,16 @@ Displayed Results: <%= result.length %>
                                                 msg2.pv_value + " " +
                                                 msg2.pv_status + " " +
                                                 msg2.pv_severity));
+    });
+
+    socket.on('connect', function(){
+        $('#connection_state').html('Connected to http://ascram01:9667');
+        $('#connection_state').addClass('alert-success').removeClass('alert-danger');
+    });
+
+    socket.on('disconnect', function(){
+        $('#connection_state').html('Unable to Connect');
+        $('#connection_state').addClass('alert-danger').removeClass('alert-success');
     });
 </script>
 

@@ -57,6 +57,11 @@
       "from": "body-parser@latest",
       "resolved": "https://registry.npmjs.org/body-parser/-/body-parser-1.17.1.tgz"
     },
+    "bootstrap": {
+      "version": "4.0.0-alpha.6",
+      "from": "bootstrap@4.0.0-alpha.6",
+      "resolved": "https://registry.npmjs.org/bootstrap/-/bootstrap-4.0.0-alpha.6.tgz"
+    },
     "bson": {
       "version": "1.0.4",
       "from": "bson@>=1.0.4 <1.1.0",
@@ -263,6 +268,11 @@
       "from": "isarray@>=1.0.0 <1.1.0",
       "resolved": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
     },
+    "jquery": {
+      "version": "3.2.1",
+      "from": "jquery@latest",
+      "resolved": "https://registry.npmjs.org/jquery/-/jquery-3.2.1.tgz"
+    },
     "json3": {
       "version": "3.3.2",
       "from": "json3@3.3.2",
@@ -310,7 +320,7 @@
     },
     "moment": {
       "version": "2.18.1",
-      "from": "moment@latest",
+      "from": "https://registry.npmjs.org/moment/-/moment-2.18.1.tgz",
       "resolved": "https://registry.npmjs.org/moment/-/moment-2.18.1.tgz"
     },
     "mongodb": {
@@ -593,6 +603,11 @@
       "version": "0.10.31",
       "from": "string_decoder@>=0.10.0 <0.11.0",
       "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz"
+    },
+    "tether": {
+      "version": "1.4.0",
+      "from": "tether@>=1.4.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/tether/-/tether-1.4.0.tgz"
     },
     "to-array": {
       "version": "0.1.4",
