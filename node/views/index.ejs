@@ -6,10 +6,26 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/tether.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/scram.custom.css">
 </head>
 <body>
-<h1>You've been SCRAM-ed [Superior Control Room Alarm Manager - external display]</h1>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#" title="[Superior Control Room Alarm Manager - external display]">
+      <img src="egg-icon.png" width="30" height="30" class="d-inline-block align-top" alt="SCRAM Logo">
+      SCRAM-ed</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto"></ul>
+    <a class="nav-link" href="#config"><i class="fa fa-cogs icon-white"></i></a>
+  </div>
+</nav>
+
+
 <div class="alert alert-danger" id="connection_state"></div>
 <h2>Active Alarms</h2>
 <ol>

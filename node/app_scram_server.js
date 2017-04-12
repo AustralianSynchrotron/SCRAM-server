@@ -27,6 +27,8 @@ app.use('/js',express.static(__dirname + '/node_modules/tether/dist/js'));
 app.use('/js',express.static(__dirname + '/node_modules/web-audio-daw/build'));
 app.use('/css',express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/css',express.static(__dirname + '/node_modules/tether/dist/css'));
+app.use('/css',express.static(__dirname + '/node_modules/font-awesome/css'));
+app.use('/fonts',express.static(__dirname + '/node_modules/font-awesome/fonts'));
 app.use('/',root);
 app.use('/input',input);
 
