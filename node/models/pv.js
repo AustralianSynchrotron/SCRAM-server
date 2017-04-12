@@ -13,6 +13,8 @@ var pvSchema = new ScramSchema({
     pv_date: {type: Date, required: true},
     pv_status: {type: String, required: true},
     pv_severity: {type: String, required: true},
+    source: {type: String, default: 'ALH'},
+    active_state: {type: Number, default: 0},   /* 0: null, 1: active, 2: complete */
     created_at: {type: Date, required: true},
     updated_at: Date,
     comments: String

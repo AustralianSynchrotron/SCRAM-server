@@ -11,7 +11,17 @@
 <body>
 <h1>You've been SCRAM-ed [Superior Control Room Alarm Manager - external display]</h1>
 <div class="alert alert-danger" id="connection_state"></div>
-<h2>Latest Alarms</h2>
+<h2>Active Alarms</h2>
+<ol>
+    <h3>
+        <div class="pv_display_active">
+
+        </div>
+    </h3>
+</ol>
+
+
+<h2>Alarm Log</h2>
 
 <% if (result) { %>
 <ol><h3><div class="pv_display_list">
@@ -47,7 +57,23 @@
         if (msg2.pv_severity === 'MINOR'){
             class_str = "row bg-warning";
         }
-        console.log(class_str);
+        //console.log(class_str);
+
+        if (msg2.active_state === 1){
+            $('.pv_display_active')
+            .prepend($('<div>')
+            .addClass(class_str)
+            .html("<div class='col-sm-2'>" + moment(msg2.pv_date).format("YYYY-MM-DD  HH:mm:ss") + "</div>" +
+                "<div class='col-sm-4'>" + msg2.pv_name + "</div>" +
+                "<div class='col-sm'>" + msg2.pv_value + "</div>" +
+                "<div class='col-sm'>" + msg2.pv_status + "</div>" +
+                "<div class='col-sm'>" + msg2.pv_severity + "</div>"));
+        }
+
+        if (msg2.active_state === 2){
+            console.log('active_state: ', msg2.active_state);
+            $(".pv_display_active .row:contains("+msg2.pv_name+")").hide();
+        }
 
         $('.pv_display_list')
             .prepend($('<div>')
