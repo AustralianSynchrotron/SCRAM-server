@@ -45,7 +45,11 @@
 <script src="/js/tether.min.js?v1.4.0"></script>
 <script src="/js/bootstrap.min.js?v4.0.0-alpha.6"></script>
 <script src="/js/moment-with-locales.min.js"></script>
+<script src="/js/wad.min.js?v2.3.1"></script>
 <script>
+    var bell = new Wad({source: 'Bell-tone.mp3',
+                        volume: 1.0});
+
     var socket = io();
 
     socket.on('db_updated', function(msg){
@@ -68,11 +72,14 @@
                 "<div class='col-sm'>" + msg2.pv_value + "</div>" +
                 "<div class='col-sm'>" + msg2.pv_status + "</div>" +
                 "<div class='col-sm'>" + msg2.pv_severity + "</div>"));
+
+            bell.play({loop: true});
         }
 
         if (msg2.active_state === 2){
             console.log('active_state: ', msg2.active_state);
             $(".pv_display_active .row:contains("+msg2.pv_name+")").hide();
+            bell.stop();
         }
 
         $('.pv_display_list')

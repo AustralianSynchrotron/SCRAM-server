@@ -656,6 +656,11 @@
       "from": "vary@>=1.1.0 <1.2.0",
       "resolved": "https://registry.npmjs.org/vary/-/vary-1.1.1.tgz"
     },
+    "web-audio-daw": {
+      "version": "2.3.1",
+      "from": "web-audio-daw@latest",
+      "resolved": "https://registry.npmjs.org/web-audio-daw/-/web-audio-daw-2.3.1.tgz"
+    },
     "ws": {
       "version": "1.1.2",
       "from": "ws@1.1.2",
